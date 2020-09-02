@@ -1,0 +1,25 @@
+{
+  "name": "mern-structure-demo",
+  "version": "1.0.0",
+  "description": "MERN Structure Demo",
+  "scripts": {
+    "build": "cd client && npm run build",
+    "client": "cd client && npm start",
+    "heroku-postbuild": "npm run build",
+    "install": "cd server && npm install && cd ../client && npm install",
+    "server": "cd server && npm start",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:dev": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "start:prod": "node server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "if-env": "^1.0.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
